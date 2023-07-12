@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+     <! -- Check fontawesome version of icons and link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+<!--Topbar style-->
+<!--    <style>-->
+<!--body {-->
+<!--  margin: 0;-->
+<!--  font-family: Arial, Helvetica, sans-serif;-->
+<!--}-->
+
+<!--.topnav {-->
+<!--  overflow: hidden;-->
+<!--  background-color: #333;-->
+<!--}-->
+
+<!--.topnav a {-->
+<!--  float: left;-->
+<!--  color: #f2f2f2;-->
+<!--  text-align: center;-->
+<!--  padding: 14px 16px;-->
+<!--  text-decoration: none;-->
+<!--  font-size: 17px;-->
+<!--}-->
+
+<!--.topnav a:hover {-->
+<!--  background-color: #ddd;-->
+<!--  color: black;-->
+<!--}-->
+
+<!--.topnav a.active {-->
+<!--  background-color: #04AA6D;-->
+<!--  color: white;-->
+<!--}-->
+<!--</style>-->
+
+</head>
+<body>
+    <!-- Topbar -->
+<!--    <div class="topnav">-->
+<!--        <a class="active" href="#home">Home</a>-->
+<!--        <a href="#news">News</a>-->
+<!--        <a href="#contact">Contact</a>-->
+<!--        <a href="#about">About</a>-->
+<!--</div>-->
+
+    <!--    Search line-->
+    <div>
+        <form class="d-flex" method="post" action="{% url 'search-weather' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search weather for city" aria-label="Search">
+            <button class="btn btn-warning" type="submit">Search</button>
+        </form>
+    </div>
+    <!-- Sidebar -->
+    <aside>
+        <img src="{% static 'main/img/Jimg.jpg' %}" alt="Logo">
+        <span class="logo">dayBook</span>
+        <h3>Navigation</h3>
+        <ul>
+            <a style="text-decoration:none" href="{% url 'home' %}"><li><i class="fas fa-house-user"></i>Main</li></a>
+            <a style="text-decoration:none" href="{% url 'events' %}"><li><i class="fas fa-address-card"></i></i>Events</li></a>
+        </ul>
+    </aside>
+    <!-- Main part -->
+    <main>
+        <!-- Can use the word 'section' instead 'block' -->
+        {% block content %}
+            
+        {% endblock %}
+
+    </main>
+
+</body>
+</html>
