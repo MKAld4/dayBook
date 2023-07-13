@@ -1,0 +1,64 @@
+body {
+    background: #324ea8;
+}
+
+div .d-flex {
+    float: right;
+}
+
+aside {
+    float: left;
+    background: #4832a8;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid #326fa8;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+aside .logo {
+    font-size: 25px;
+    margin-left: 10px;
+    font-weight: bold;
+    /* Move text Logo */
+    position: relative;
+    top: +30px;
+}
+aside h3 {
+    margin-top: 70px;
+    font-size: 20px;
+}
+
+aside ul {
+    list-style: none;
+}
+/* Add styles in menu */
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    /* Fluent increasing to 'transform' option below with delay 0.5s, (of all objects use 'all') */
+    transition: transform .5s ease;
+}
+/* Add hover effect with pseudo class */
+aside ul li:hover, aside ul a:hover {
+    color: #c07bc9;
+    /* Use style="text-decoration:none" to remove underlining in hover */
+    text-decoration: none;
+    /* Increase text in hover om 10% */
+    transform: scale(1.1);
+}
+
+/* Style for tag [main] in layout.html, content in index.html, class - features */
+main .features {
+    float: left;
+    color: #fff;
+    margin-top: 100px;
+    /* Text in center */
+    text-align: center;
+    width: 75%;
+}
