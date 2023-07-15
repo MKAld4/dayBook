@@ -17,7 +17,11 @@ def events(request):
 
 # Searching
 def search_weather(request):
-    return render(request, 'search_weather.html', {})
+    if request.method == "POST":
+        searched = request.POST['searched']
+        return render(request, 'search_weather.html', {'searched': searched})
+    else:
+        return render(request, 'search_weather.html', {})
 
 # Searching
 # @register.filter

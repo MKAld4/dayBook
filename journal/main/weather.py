@@ -41,13 +41,13 @@ def get_weather_json():
 response = get_weather_json()
 
 my_weather = {
-    'temperature': f"{response['main']['temp'] - 273:.2f}C\N{DEGREE SIGN}",
-    'filling': f"{response['main']['feels_like'] - 273:.2f}C\N{DEGREE SIGN}",
-    'humidity': f"{response['main']['humidity']:}%",
-    'wind': f"{response['wind']['speed']:.2f}m/s",
-    'sunrise': f"{dt.datetime.utcfromtimestamp(response['sys']['sunrise'] + response['timezone'])}",
-    'sunset': f"{dt.datetime.utcfromtimestamp(response['sys']['sunset'] + response['timezone'])}",
-    'generally': f"{response['weather'][0]['description']}",
+    'Temperature': f"{response['main']['temp'] - 273:.2f}C\N{DEGREE SIGN}",
+    'Filling': f"{response['main']['feels_like'] - 273:.2f}C\N{DEGREE SIGN}",
+    'Humidity': f"{response['main']['humidity']:}%",
+    'Wind': f"{response['wind']['speed']:.2f}m/s",
+    'Sunrise': f"{dt.datetime.utcfromtimestamp(response['sys']['sunrise'] + response['timezone'])}",
+    'Sunset': f"{dt.datetime.utcfromtimestamp(response['sys']['sunset'] + response['timezone'])}",
+    'Generally': f"{response['weather'][0]['description']}",
 }
 
 # for k, v in my_weather.items():

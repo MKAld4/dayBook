@@ -3,5 +3,9 @@
 {% block title %}Search{% endblock %}
 
 {% block content %}
-    <h1>Sear....</h1>
+    {% if searched %}
+        <h1>You search the weather in {{ searched }}</h1>
+    {% else %}
+        <h1>You forgot city</h1>
+    {% endif %}
 {% endblock %}

@@ -4,7 +4,11 @@
 
 {% block content %}
     <h1>Weather in Minsk</h1>
-    <p>{% for key,value in my_weather.items %}<p>{{ key }}----{{ value }}</p>{% endfor %}</p>
+    <p>
+        {% for key,value in my_weather.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </p>
 
 
 {% endblock %}
