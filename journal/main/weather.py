@@ -13,10 +13,6 @@ my_weather = {}
 def weather(CITY):
     # ? in link to make an opportunity to add smth in the end
     BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
-    # Use KEY had value written in setting.py or new venv, for the weather.py only can use:
-    # API_KEY = open('api_key', 'r').read()
-    # Also can just put key
-    # API_KEY = ''
 
     url = BASE_URL + "appid=" + API_KEY + "&q=" + CITY
 
@@ -32,13 +28,14 @@ def weather(CITY):
 
 
 # res = requests.get(url).json()
-def get_weather_json():
+def get_my_weather_json():
     res = weather("Minsk")
     # print(res.json())
     return res.json()
 
 
-response = get_weather_json()
+# Dictionary for main page
+response = get_my_weather_json()
 
 my_weather = {
     'Temperature': f"{response['main']['temp'] - 273:.2f}C\N{DEGREE SIGN}",
@@ -50,5 +47,28 @@ my_weather = {
     'Generally': f"{response['weather'][0]['description']}",
 }
 
+
 # for k, v in my_weather.items():
 #     print(k+"\t", v)
+
+
+# Dictionary for search
+def get_weather_json(other_city):
+    res = weather(other_city)
+    response1 = res.json()
+    other_weather = {
+        'Temperature': f"{response1['main']['temp'] - 273:.2f}C\N{DEGREE SIGN}",
+        'Filling': f"{response1['main']['feels_like'] - 273:.2f}C\N{DEGREE SIGN}",
+        'Humidity': f"{response1['main']['humidity']:}%",
+        'Wind': f"{response1['wind']['speed']:.2f}m/s",
+        'Sunrise': f"{dt.datetime.utcfromtimestamp(response1['sys']['sunrise'] + response1['timezone'])}",
+        'Sunset': f"{dt.datetime.utcfromtimestamp(response1['sys']['sunset'] + response1['timezone'])}",
+        'Generally': f"{response1['weather'][0]['description']}",
+    }
+    return other_weather
+
+
+searched = input('City is ')
+other_city_weather = get_weather_json(searched)
+# for k, v in other_city_weather.items():
+#     print(k + "\t", v)
