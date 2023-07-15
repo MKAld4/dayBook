@@ -55,20 +55,22 @@ my_weather = {
 # Dictionary for search
 def get_weather_json(other_city):
     res = weather(other_city)
-    response1 = res.json()
-    other_weather = {
-        'Temperature': f"{response1['main']['temp'] - 273:.2f}C\N{DEGREE SIGN}",
-        'Filling': f"{response1['main']['feels_like'] - 273:.2f}C\N{DEGREE SIGN}",
-        'Humidity': f"{response1['main']['humidity']:}%",
-        'Wind': f"{response1['wind']['speed']:.2f}m/s",
-        'Sunrise': f"{dt.datetime.utcfromtimestamp(response1['sys']['sunrise'] + response1['timezone'])}",
-        'Sunset': f"{dt.datetime.utcfromtimestamp(response1['sys']['sunset'] + response1['timezone'])}",
-        'Generally': f"{response1['weather'][0]['description']}",
-    }
-    return other_weather
+    if not res.ok:
+        print('Oh')
+    else:
+        response1 = res.json()
+        other_weather = {
+            'Temperature': f"{response1['main']['temp'] - 273:.2f}C\N{DEGREE SIGN}",
+            'Filling': f"{response1['main']['feels_like'] - 273:.2f}C\N{DEGREE SIGN}",
+            'Humidity': f"{response1['main']['humidity']:}%",
+            'Wind': f"{response1['wind']['speed']:.2f}m/s",
+            'Sunrise': f"{dt.datetime.utcfromtimestamp(response1['sys']['sunrise'] + response1['timezone'])}",
+            'Sunset': f"{dt.datetime.utcfromtimestamp(response1['sys']['sunset'] + response1['timezone'])}",
+            'Generally': f"{response1['weather'][0]['description']}",
+        }
+        return other_weather
 
-
-searched = input('City is ')
-other_city_weather = get_weather_json(searched)
+# searched = input('City is ')
+# other_city_weather = get_weather_json(searched)
 # for k, v in other_city_weather.items():
 #     print(k + "\t", v)
