@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from main.weather import my_weather
+from main.weather import my_weather, get_weather_json
 
 # For displaying dictionary
 from django.template.defaulttags import register
@@ -19,7 +19,9 @@ def events(request):
 def search_weather(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        return render(request, 'search_weather.html', {'searched': searched})
+        # Variable to display weather
+        weather_in = get_weather_json(searched)
+        return render(request, 'search_weather.html', {'searched': searched, 'weather_in': weather_in})
     else:
         return render(request, 'search_weather.html', {})
 
