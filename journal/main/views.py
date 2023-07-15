@@ -21,7 +21,11 @@ def search_weather(request):
         searched = request.POST['searched']
         # Variable to display weather
         weather_in = get_weather_json(searched)
-        return render(request, 'search_weather.html', {'searched': searched, 'weather_in': weather_in})
+        # Check if dictionary empty
+        if weather_in:
+            return render(request, 'search_weather.html', {'searched': searched, 'weather_in': weather_in})
+        else:
+            return render(request, 'search_weather.html', {})
     else:
         return render(request, 'search_weather.html', {})
 
