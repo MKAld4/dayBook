@@ -6,4 +6,6 @@ class Event(models.Model):
     message = models.TextField('It was')
     date = models.DateTimeField('Date')
 
+    def __str__(self):
+        return self.event
 
