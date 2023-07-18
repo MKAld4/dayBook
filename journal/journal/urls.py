@@ -7,10 +7,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main.views.index, name='home'),
-    path('events/', include('events.urls')),
-    path('search_weather', main.views.search_weather, name='search-weather')
-
+    path('', include('main.urls')),
+    path('search_weather/', include('main.urls')),
+    path('events/', include('events.urls'))
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

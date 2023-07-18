@@ -1,11 +1,10 @@
 from django.urls import path
-
-from django.conf import settings
+from . import views
 
 
 urlpatterns = [
-    path('', main.views.index, name='home'),
-    path('search_weather', main.views.search_weather, name='search-weather')
+    path('', views.index, name='home'),
+    path('search_weather/', views.search_weather, name='search-weather')
 
 ]
 
