@@ -11,5 +11,6 @@ class EventForm(ModelForm):
         widgets = {
             'event': TextInput(attrs={'class': 'form-control', 'placeholder': 'What it was?'}),
             'message':  TextInput(attrs={'class': 'form-control', 'placeholder': 'How it was?'}),
-            'date': DateTimeInput(attrs={'class': 'form-control'})
+            'date': forms.SelectDateWidget(empty_label=("Choose Year", "Choose Month", "Choose Day"),)
+            # 'date': DateTimeInput(attrs={'class': 'form-control'})
         }
