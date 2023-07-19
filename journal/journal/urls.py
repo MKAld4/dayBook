@@ -15,8 +15,12 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('main.urls')),
                   path('search_weather/', include('main.urls')),
+                  # Url for view.set
+                  path('api/event', EventsView.as_view),
+                  path('', include(router.urls)),
+
                   path('events/', include('events.urls'))
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns += router.urls
+# urlpatterns += router.urls
