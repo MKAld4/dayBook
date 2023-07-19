@@ -12,3 +12,7 @@ def events(request):
 class EventsView(ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+
+def create(request):
+    return render(request, 'events_form.html')
