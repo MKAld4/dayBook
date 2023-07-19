@@ -8,10 +8,9 @@
         <!-- Checking on this page  -->
         <form method="post">
             {% csrf_token %}
-            <input type="text" placeholder="What it is?" class="form-control"><br>
-            <textarea placeholder="How was it?" class="form-control"></textarea><br>
-            <input type="date" class="form-control"><br>
-            <input type="time" class="form-control"><br>
+            {{ form.event }}<br>
+            {{ form.message }}<br>
+            {{ form.date }}<br>
             <button class="btn btn-success" type="submit">Add</button>
         </form>
     </div>

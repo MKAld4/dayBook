@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
+from events.forms import EventForm
 from events.models import Event
 from events.serializers import EventSerializer
 
@@ -15,4 +16,8 @@ class EventsView(ModelViewSet):
 
 
 def create(request):
-    return render(request, 'events_form.html')
+    form = EventForm()
+    data = {
+        'form': form
+    }
+    return render(request, 'events_form.html', data)
