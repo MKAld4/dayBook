@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import DetailView
 from rest_framework.viewsets import ModelViewSet
 
 from events.forms import EventForm
@@ -38,3 +39,9 @@ def create(request):
     }
 
     return render(request, 'events_form.html', data)
+
+
+# class EventDetailView(DetailView):
+#     model = Event
+#     template_name = 'details.html'
+#     context_object_name = 'event'
