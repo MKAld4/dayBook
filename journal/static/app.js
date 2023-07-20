@@ -1,11 +1,12 @@
-/* Connect to orders_app in main_app.html */
+/* Connect to view.events in events.html */
 new Vue ({
     el: '#events',
+//    Inside view will see:
     data: {
-    orders: []
+    events: []
     },
     created: function() {
-        /* Code js. Argument 'this' means when Vue will created it will placed in 'this' */
+        /* Code js. Argument 'this' means when Vue will created it will placed in 'this' same as __str__(self)*/
         const vm = this;
         axios.get('/api/event/')
         /* Then means after finishing previous */
