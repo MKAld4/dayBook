@@ -3,15 +3,20 @@
 {% block title %}Events{% endblock %}
 
 {% block content %}
-    <h1>Event</h1>
-    <p>Content</p>
+    <h1>Events</h1>
 
 <!--JS part-->
 {% verbatim %}
     <div class="container" id="events">
-        
+        <div class="btn btn-warning btn-lg" v-for="event in events">
+            {{ event.event }}<br>
+            {{event.date}} <br>
+            {{ event.message }}<br>
+            <div></div>
+        </div>
     </div>
 {% endverbatim %}
-
+<!-- View.js forms after all app script -->
+<script src="/static/app.js"></script>
 
 {% endblock %}
