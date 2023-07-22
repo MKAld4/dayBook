@@ -9,3 +9,5 @@ class Event(models.Model):
     def __str__(self):
         return self.event
 
+    def get_absolute_url(self):
+        return f'/events/{self.id}'

@@ -1,8 +1,6 @@
 import datetime as dt
 
 import requests
-# !!!!!!!!!!! Hide keys
-# from journal.settings import API_KEY
 from decouple import config
 
 API_KEY = config('API_KEY', default='')

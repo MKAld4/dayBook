@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, DeleteView
 from rest_framework.viewsets import ModelViewSet
 
 from events.forms import EventForm
@@ -44,5 +44,11 @@ def create(request):
 class EventUpdateView(UpdateView):
     model = Event
     template_name = 'events_form.html'
-    fields = ['event', 'message', 'date']
+    form_class = EventForm
+    success_url = '/events/'
 
+
+class EventsDeleteView(DeleteView):
+    model = Event
+    success_url = '/events/'
+    template_name = 'event-delete.html'
